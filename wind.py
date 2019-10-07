@@ -8,8 +8,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QApplication,QDialog,QMainWindow
 import sys
+from  PyQt5.QtWidgets import QDialog,QMainWindow,QApplication
 import os
 import datetime
 if not os.path.exists("WindNote"):
@@ -77,7 +77,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("Dialog", "Dialog"))
+        MainWindow.setWindowTitle(_translate("Dialog", "风语"))
         self.label.setText(_translate("Dialog", "本本"))
         self.label_3.setText(_translate("Dialog", "主题"))
         self.pushButton.setText(_translate("Dialog", "保存"))
@@ -149,11 +149,8 @@ if __name__=='__main__':
     app=QApplication(sys.argv)
     window=parentWindow()
     child=childWindow()
-
-    #通过toolButton将两个窗体关联
     btn=window.main_ui.pushButton_2
     btn.clicked.connect(child.show)
-    # 显示
     btn2=child.child.pushButton
     btn2.clicked.connect(child.close)
     window.show()
